@@ -32,7 +32,7 @@ class EmbeddingManager:
                 raise RuntimeError(f"加载模型失败: {e}")
         return self.model
     
-    def generate_embedding(self, text: str) -> np.ndarray:
+    def generate_embedding(self, text: str):
         """
         生成文本的 embedding 向量
         """
