@@ -4,11 +4,9 @@ Embedding 工具模块 - 处理向量生成和相似度查询
 import pickle
 from typing import List, Dict, Tuple, Optional
 
-# 确保 numpy 可用
-try:
-    import numpy as np
-except ImportError:
-    raise ImportError("numpy 未安装，请运行: pip install numpy>=1.21.0")
+# 延迟导入 numpy，避免在模块级别导入失败
+# 在 Streamlit Cloud 上，numpy 可能在某些情况下还没有完全安装好
+# 所以在需要使用时才导入
 
 class EmbeddingManager:
     def __init__(self, model_name: str = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"):
@@ -93,19 +91,22 @@ class EmbeddingManager:
         except Exception as e:
             raise RuntimeError(f"生成 embedding 时出错: {e}")
     
-    def save_embedding(self, embedding: np.ndarray) -> bytes:
-        """
-        将 embedding 转换为 BLOB 格式存储
-        """
+    def save_embedding(self, embedding) -> bytes:
+        """将 embedding 转换为 BLOB 格式存储"""
+        # 确保 numpy 可用
+        import numpy as np
+        if not isinstance(embedding, np.ndarray):
+            embedding = np.array(embedding)
         return pickle.dumps(embedding)
     
-    def load_embedding(self, embedding_blob: bytes) -> Optional[np.ndarray]:
+    def load_embedding(self, embedding_blob: bytes):
         """
         从 BLOB 格式加载 embedding
         """
         if embedding_blob is None:
             return None
         try:
+            import numpy as np
             return pickle.loads(embedding_blob)
         except Exception:
             return None

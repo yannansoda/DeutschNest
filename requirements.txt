@@ -1,15 +1,25 @@
-# Core app dependencies
-numpy<2.0,>=1.24.3
+# Core dependencies - numpy must come first as it's required by many packages
+numpy>=1.24.3,<2.0.0
+
+# ML/NLP dependencies - install in correct order
+torch==2.2.0
+sentence-transformers==2.2.2
+
+# App framework
 streamlit>=1.28.0
+
+# Data processing
 pandas>=2.0.0
-pyttsx3>=2.90
-genanki>=0.13.0
-deep-translator>=1.11.0
-supabase>=2.0.0
-python-dotenv>=1.0.0
 
 # NLP
 spacy>=3.7.0
 de-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-3.8.0/de_core_news_sm-3.8.0-py3-none-any.whl
-torch==2.2.0
-sentence-transformers==2.2.2
+
+# Utilities
+pyttsx3>=2.90
+genanki>=0.13.0
+deep-translator>=1.11.0
+
+# Database
+supabase>=2.0.0
+python-dotenv>=1.0.0

@@ -41,8 +41,15 @@ if 'parser' not in st.session_state:
         st.session_state._nlp_init_error = e
 if 'embedding_manager' not in st.session_state:
     try:
-        # 确保 numpy 可用
-        import numpy as np
+        # 确保 numpy 可用（在 Streamlit Cloud 上可能需要延迟检查）
+        try:
+            import numpy as np
+            # 验证 numpy 真的可用
+            _ = np.array([1, 2, 3])
+        except (ImportError, AttributeError) as np_error:
+            st.session_state.embedding_manager = None
+            st.session_state._embedding_init_error = np_error
+            raise
         st.session_state.embedding_manager = EmbeddingManager()
     except ImportError as e:
         st.session_state.embedding_manager = None
