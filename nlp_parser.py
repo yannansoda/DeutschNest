@@ -2,6 +2,7 @@
 NLP 解析模块 - 使用 spacy 进行德语文本分析
 """
 import spacy
+from spacy.cli import download
 from typing import List, Tuple
 import re
 
@@ -10,7 +11,9 @@ class NLPParser:
         try:
             self.nlp = spacy.load("de_core_news_sm")
         except OSError:
-            raise Exception("请先安装德语模型: python -m spacy download de_core_news_sm")
+            download("de_core_news_sm")
+            self.nlp = spacy.load("de_core_news_sm")
+            # raise Exception("请先安装德语模型: python -m spacy download de_core_news_sm")
     
     def parse_text(self, text: str) -> Tuple[List[str], List[str], List[str]]:
         """
