@@ -11,17 +11,12 @@ class NLPParser:
     def __init__(self):
 
         model_name = "de_core_news_sm"
-        model_dir = os.path.join(os.getcwd(), "spacy_model")  # a folder in your app
-
-        # Ensure the folder exists
-        os.makedirs(model_dir, exist_ok=True)
-
         try:
-            self.nlp = spacy.load(model_name)
+            nlp = spacy.load(model_name)
         except OSError:
-            # Download to local folder
-            download(model_name, target=model_dir, quiet=True)
-            self.nlp = spacy.load(os.path.join(model_dir, model_name))
+            # Download the model (no target argument)
+            download(model_name)
+            nlp = spacy.load(model_name)
     
     def parse_text(self, text: str) -> Tuple[List[str], List[str], List[str]]:
         """
