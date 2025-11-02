@@ -47,9 +47,9 @@ TEXTS = {
     
     # 主页
     "title_home": {
-        "中文": "🇩🇪 德语学习工具",
-        "English": "🇩🇪 German Learning Tool",
-        "Deutsch": "🇩🇪 Deutsch Lernwerkzeug"
+        "中文": "🇩🇪 DeutschNest",
+        "English": "🇩🇪 DeutschNest",
+        "Deutsch": "🇩🇪 DeutschNest"
     },
     "metric_total": {
         "中文": "总条目",
