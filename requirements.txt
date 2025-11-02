@@ -10,6 +10,6 @@ numpy<2.0,>=1.24.3
 
 # NLP
 spacy>=3.7.0
-spacy-models[de-core-news-sm]>=3.7.0
+de-core-news-sm>=3.7.0
 torch==2.2.0
 sentence-transformers==2.2.2
