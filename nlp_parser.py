@@ -12,11 +12,12 @@ class NLPParser:
 
         model_name = "de_core_news_sm"
         try:
-            nlp = spacy.load(model_name)
+            self.nlp = spacy.load(model_name)
         except OSError:
-            # Download the model (no target argument)
-            download(model_name)
-            nlp = spacy.load(model_name)
+            raise Exception("请先安装德语模型: python -m spacy download de_core_news_sm")
+            # # Download the model (no target argument)
+            # download(model_name)
+            # nlp = spacy.load(model_name)
     
     def parse_text(self, text: str) -> Tuple[List[str], List[str], List[str]]:
         """
