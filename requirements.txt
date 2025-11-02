@@ -11,6 +11,5 @@ numpy<2.0,>=1.24.3
 # NLP
 spacy>=3.7.0
 
-# Pre-built CPU-only Torch (avoids compiling from source)
-torch==2.2.0+cpu --find-links https://download.pytorch.org/whl/cpu
+torch==2.2.0
 sentence-transformers==2.2.2
