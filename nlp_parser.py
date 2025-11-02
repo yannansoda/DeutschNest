@@ -5,15 +5,23 @@ import spacy
 from spacy.cli import download
 from typing import List, Tuple
 import re
+import os
 
 class NLPParser:
     def __init__(self):
+
+        model_name = "de_core_news_sm"
+        model_dir = os.path.join(os.getcwd(), "spacy_model")  # a folder in your app
+
+        # Ensure the folder exists
+        os.makedirs(model_dir, exist_ok=True)
+
         try:
-            self.nlp = spacy.load("de_core_news_sm")
+            self.nlp = spacy.load(model_name)
         except OSError:
-            download("de_core_news_sm")
-            self.nlp = spacy.load("de_core_news_sm")
-            # raise Exception("请先安装德语模型: python -m spacy download de_core_news_sm")
+            # Download to local folder
+            download(model_name, target=model_dir, quiet=True)
+            self.nlp = spacy.load(os.path.join(model_dir, model_name))
     
     def parse_text(self, text: str) -> Tuple[List[str], List[str], List[str]]:
         """
