@@ -1,0 +1,64 @@
+[
+  {
+    "type": "Sentence",
+    "content": "Trotzdem habe ich den Urlaub sehr gefallen.",
+    "translation": "Nevertheless, I really enjoyed the vacation.",
+    "lemma": [
+      "trotzdem",
+      "haben",
+      "ich",
+      "der",
+      "urlaub",
+      "sehr",
+      "fallen"
+    ],
+    "tags": [
+      "trotzdem"
+    ],
+    "examples": []
+  },
+  {
+    "type": "Sentence",
+    "content": "Es lohnt sich dorthin zu gehen.",
+    "translation": "It's worth going there.",
+    "lemma": [
+      "es",
+      "lohnen",
+      "sich",
+      "dorthin",
+      "zu",
+      "gehen"
+    ],
+    "tags": [],
+    "examples": []
+  },
+  {
+    "type": "Sentence",
+    "content": "Das Wetter ist sehr wechselhaft.",
+    "translation": "The weather is very changeable.",
+    "lemma": [
+      "der",
+      "wetter",
+      "sein",
+      "sehr",
+      "wechselhaft"
+    ],
+    "tags": [],
+    "examples": []
+  },
+  {
+    "type": "Sentence",
+    "content": "Es lohnt sich dorthin zu gehen.",
+    "translation": "It's worth going there.",
+    "lemma": [
+      "es",
+      "lohnen",
+      "sich",
+      "dorthin",
+      "zu",
+      "gehen"
+    ],
+    "tags": [],
+    "examples": []
+  }
+]
